@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahsulot qo'shish</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .form-container h2 {
+            text-align: center;
+        }
+        .form-container input, .form-container select, .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #006F8E;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Yangi Mahsulot Qo'shish</h2>
+        <form action="/add_product" method="POST" enctype="multipart/form-data">
+            <label for="name">Mahsulot nomi:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="description">Ta'rifi:</label>
+            <textarea id="description" name="description" required></textarea>
+
+            <label for="price">Narxi:</label>
+            <input type="number" id="price" name="price" required>
+
+            <label for="category">Kategoriya:</label>
+            <select id="category" name="category" required>
+                <option value="">Kategoriya tanlang</option>
+                {% for category in categories %}
+                <option value="{{ category }}">{{ category }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="image">Rasmni tanlash:</label>
+            <input type="file" id="image" name="image" accept="image/*">
+
+            <button type="submit">Mahsulotni Qo'shish</button>
+        </form>
+    </div>
+</body>
+</html>

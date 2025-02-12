@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ product.name }}</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .product-detail { border: 1px solid #ccc; padding: 20px; max-width: 600px; margin: 0 auto; }
+        .product-detail img { width: 100%; }
+    </style>
+</head>
+<body>
+    <div class="product-detail">
+        <h1>{{ product.name }}</h1>
+        <img src="{{ product.image_url }}" alt="{{ product.name }}">
+        <p><strong>Narxi: </strong>{{ product.price }} so'm</p>
+        <p><strong>Ta'rif: </strong>{{ product.description }}</p>
+        <a href="/">Orqaga</a>
+    </div>
+</body>
+</html>
